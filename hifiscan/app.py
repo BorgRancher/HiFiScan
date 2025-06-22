@@ -14,6 +14,7 @@ import numpy as np
 import pyqtgraph as pg
 
 import hifiscan as hifi
+import fickling
 
 
 class App(qt.QWidget):
@@ -545,7 +546,7 @@ class App(qt.QWidget):
                 self, 'Load measurements', str(self.saveDir))
             if path:
                 with open(path, 'rb') as f:
-                    self.refAnalyzer = pickle.load(f)
+                    self.refAnalyzer = fickling.load(f)
                 setMeasurementsText()
                 self.plot()
 
@@ -554,7 +555,7 @@ class App(qt.QWidget):
                 self, 'Load and Store measurements', str(self.saveDir))
             if path:
                 with open(path, 'rb') as f:
-                    analyzer: hifi.Analyzer = pickle.load(f)
+                    analyzer: hifi.Analyzer = fickling.load(f)
                 if analyzer and analyzer.isCompatible(self.refAnalyzer):
                     self.refAnalyzer.addMeasurements(analyzer)
                 else:

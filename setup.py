@@ -31,5 +31,6 @@ setup(
     },
     python_requires=">=3.8",
     install_requires=['eventkit', 'numba', 'numpy', 'PyQt6', 'pyqtgraph',
-                      'sounddevice']
+                      'sounddevice',
+                      "fickling>=0.1.3,~=0.1.0",]
 )
